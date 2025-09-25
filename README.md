@@ -6,10 +6,18 @@ for the [wrec](https://github.com/mvolkmann/wrec) library.
 ## Installing
 
 ```bash
+npm i -D @custom-elements-manifest/analyzer
 npm i -D cem-plugin-wrec
 ```
 
 ## Configuring
+
+Add the following scripts in your `package.json` file:
+
+```json
+"cem": "custom-elements-manifest analyze",
+"cem:watch": "custom-elements-manifest analyze --watch",
+```
 
 Create the file `custom-elements-manifest.config.js` containing the following:
 
