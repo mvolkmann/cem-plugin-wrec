@@ -119,7 +119,7 @@ export default function wrecPlugin() {
         (declaration) => declaration.kind === "class"
       );
 
-      for (aClass of classes) {
+      for (const aClass of classes) {
         const { members } = aClass;
         if (members) {
           aClass.members = members.filter(
