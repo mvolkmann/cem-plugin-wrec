@@ -1,3 +1,4 @@
+//TODO: Does this support JSDoc comment attributes like @attr by default?
 export default function wrecPlugin() {
   const MEMBERS_TO_HIDE = new Set(["css", "html", "properties"]);
 

@@ -1,6 +1,6 @@
 {
   "name": "cem-plugin-wrec",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "plugin for use with @custom-elements-manifest/analyzer",
   "type": "module",
   "main": "index.js",
@@ -8,17 +8,8 @@
     "start": "nodemon dev.js",
     "test": "uvu test"
   },
-  "keywords": [
-    "custom-elements",
-    "custom-elements-json",
-    "custom-elements-manifest",
-    "customelements",
-    "webcomponents",
-    "customelementsjson",
-    "customelementsmanifest"
-  ],
   "author": "R. Mark Volkmann",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.1.14",
     "globby": "^11.0.3",
