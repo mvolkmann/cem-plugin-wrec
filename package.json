@@ -1,15 +1,11 @@
 {
   "name": "cem-plugin-wrec",
-  "version": "0.1.1",
   "description": "plugin for use with @custom-elements-manifest/analyzer",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon dev.js",
-    "test": "uvu test"
-  },
   "author": "R. Mark Volkmann",
   "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "version": "0.1.2",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.1.14",
     "globby": "^11.0.3",
