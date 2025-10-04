@@ -1,6 +1,6 @@
 {
   "name": "cem-plugin-wrec",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "plugin for use with @custom-elements-manifest/analyzer",
   "type": "module",
   "main": "index.js",
