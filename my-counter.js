@@ -1,4 +1,4 @@
-import Wrec from "wrec";
+import { Wrec } from "wrec";
 
 /**
  * This is a counter web component.
