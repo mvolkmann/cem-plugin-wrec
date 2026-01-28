@@ -43,7 +43,8 @@ export default function wrecPlugin() {
       switch (node.kind) {
         case Kind.ClassDeclaration:
           const className = node.name.getText();
-          const heritage = node.heritageClauses[0];
+          const { heritageClauses } = node;
+          const heritage = heritageClauses ? heritageClauses[0] : null;
           if (heritage) {
             const superclass = heritage.types[0].expression.getText();
             if (superclass === "Wrec") {
@@ -59,7 +60,7 @@ export default function wrecPlugin() {
                 },
               });
               currentClass = moduleDoc?.declarations?.find(
-                (declaration) => declaration.name === className
+                (declaration) => declaration.name === className,
               );
             }
           }
@@ -115,14 +116,14 @@ export default function wrecPlugin() {
     // Runs for each module, after analyzing, all information about your module should now be available
     moduleLinkPhase({ moduleDoc, context }) {
       const classes = moduleDoc?.declarations?.filter(
-        (declaration) => declaration.kind === "class"
+        (declaration) => declaration.kind === "class",
       );
 
       for (const aClass of classes) {
         const { members } = aClass;
         if (members) {
           aClass.members = members.filter(
-            (member) => !MEMBERS_TO_HIDE.has(member.name)
+            (member) => !MEMBERS_TO_HIDE.has(member.name),
           );
         }
       }
