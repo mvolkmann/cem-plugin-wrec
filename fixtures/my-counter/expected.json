@@ -4,22 +4,21 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "my-element.js",
+      "path": "my-counter.js",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "MyElement",
+          "name": "MyCounter",
           "members": [
             {
               "kind": "field",
-              "name": "someField",
-              "default": "",
-              "foo": "Some custom information!"
+              "name": "count",
+              "default": "0"
             }
           ],
           "superclass": {
-            "name": "HTMLElement"
+            "name": "Wrec"
           },
           "customElement": true
         }
@@ -27,10 +26,10 @@
       "exports": [
         {
           "kind": "js",
-          "name": "MyElement",
+          "name": "MyCounter",
           "declaration": {
-            "name": "MyElement",
-            "module": "my-element.js"
+            "name": "MyCounter",
+            "module": "my-counter.js"
           }
         }
       ]

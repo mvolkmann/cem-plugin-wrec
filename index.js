@@ -4,10 +4,9 @@ export default function wrecPlugin() {
 
   let currentClass;
   let isStatic = false;
-  let Kind = {};
   let propertyName = "";
 
-  function nodeValue(node) {
+  function nodeValue(Kind, node) {
     const { initializer } = node;
     switch (initializer.kind) {
       case Kind.Identifier:
@@ -38,8 +37,8 @@ export default function wrecPlugin() {
 
     // Runs for each module
     analyzePhase({ ts, node, moduleDoc, context }) {
-      Kind = ts.SyntaxKind;
-
+      // All property constant values of Kind are documented in SyntaxKind.md.
+      const Kind = ts.SyntaxKind;
       switch (node.kind) {
         case Kind.ClassDeclaration:
           const className = node.name.getText();
@@ -81,7 +80,7 @@ export default function wrecPlugin() {
                 if (initializer.kind === Kind.ObjectLiteralExpression) {
                   for (const property2 of initializer.properties) {
                     const name2 = property2.name.getText();
-                    const value2 = nodeValue(property2);
+                    const value2 = nodeValue(Kind, property2);
                     if (name2 === "doc") doc = value2;
                     if (name2 === "type") type = value2;
                     if (name2 === "value") value = value2;
@@ -113,7 +112,8 @@ export default function wrecPlugin() {
       }
     },
 
-    // Runs for each module, after analyzing, all information about your module should now be available
+    // Runs for each module.  After analyzing,
+    // all information about your module should now be available.
     moduleLinkPhase({ moduleDoc, context }) {
       const classes = moduleDoc?.declarations?.filter(
         (declaration) => declaration.kind === "class",
