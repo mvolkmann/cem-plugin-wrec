@@ -1,4 +1,3 @@
-//TODO: Does this support JSDoc comment attributes like @attr by default?
 export default function wrecPlugin() {
   const MEMBERS_TO_HIDE = new Set(["css", "html", "properties"]);
 
@@ -88,13 +87,22 @@ export default function wrecPlugin() {
                 }
               }
 
-              currentClass.attributes.push({
-                default: value,
-                description: doc,
-                fieldName: name,
-                name,
-                type,
-              });
+              const attribute = currentClass.attributes.find(
+                (obj) => obj.name === name,
+              );
+              if (attribute) {
+                attribute.default = value;
+                attribute.description = doc;
+              }
+
+              const member = currentClass.members.find(
+                (obj) => obj.name === name,
+              );
+              if (member) {
+                member.default = value;
+                member.description = doc;
+                member.reflects = true;
+              }
             }
 
             isStatic = false;
