@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "fixtures/hello-wrec.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "This displays a greeting message for a given name in a specified color.",
+          "name": "HelloWrec",
+          "cssProperties": [
+            {
+              "description": "color of border that surrounds the component",
+              "name": "--border-color",
+              "default": "gray"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "greeting message",
+              "name": "greeting"
+            }
+          ],
+          "slots": [
+            {
+              "description": "for content after the greeting",
+              "name": ""
+            },
+            {
+              "description": "for content before the greeting",
+              "name": "before"
+            },
+            {
+              "description": "for content after the greeting and the unnamed slot",
+              "name": "after"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "color",
+              "default": "black",
+              "description": "text color",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "name",
+              "default": "World",
+              "description": "name to greet",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "color",
+              "default": "black",
+              "description": "text color"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name",
+              "default": "World",
+              "description": "name to greet"
+            }
+          ],
+          "superclass": {
+            "name": "Wrec",
+            "package": "wrec"
+          },
+          "summary": "This displays a greeting message.",
+          "tagName": "hello-wrec",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "hello-wrec",
+          "declaration": {
+            "name": "HelloWrec",
+            "module": "fixtures/hello-wrec.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "fixtures/my-counter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "This is a counter web component implemented with wrec.",
+          "name": "CounterWrec",
+          "members": [
+            {
+              "kind": "field",
+              "name": "count",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "count",
+              "default": 0,
+              "description": "initial value",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "count",
+              "default": 0,
+              "description": "initial value"
+            }
+          ],
+          "superclass": {
+            "name": "Wrec",
+            "package": "wrec"
+          },
+          "tagName": "counter-wrec",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "counter-wrec",
+          "declaration": {
+            "name": "CounterWrec",
+            "module": "fixtures/my-counter.js"
+          }
+        }
+      ]
+    }
+  ]
+}

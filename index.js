@@ -87,12 +87,24 @@ export default function wrecPlugin() {
                 }
               }
 
+              if (["String", "Number", "Boolean"].includes(type)) {
+                type = type.toLowerCase();
+              }
+
               const attribute = currentClass.attributes.find(
                 (obj) => obj.name === name,
               );
               if (attribute) {
                 attribute.default = value;
                 attribute.description = doc;
+              } else {
+                currentClass.attributes.push({
+                  name,
+                  type: { text: type },
+                  fieldName: name,
+                  default: value,
+                  description: doc,
+                });
               }
 
               const member = currentClass.members.find(
@@ -102,6 +114,17 @@ export default function wrecPlugin() {
                 member.default = value;
                 member.description = doc;
                 member.reflects = true;
+              } else {
+                currentClass.members.push({
+                  kind: "field",
+                  name,
+                  privacy: "public",
+                  type: { text: type },
+                  attribute: name,
+                  default: value,
+                  description: doc,
+                  reflects: true,
+                });
               }
             }
 
